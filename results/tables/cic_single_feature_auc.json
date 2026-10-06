@@ -1,0 +1,15 @@
+{
+  "duration": 0.705,
+  "init_win_fwd": 0.6734,
+  "fwd_pkts": 0.6414,
+  "bytes_per_s": 0.6049,
+  "bwd_bytes": 0.5717,
+  "bwd_pkts": 0.5684,
+  "init_win_bwd": 0.5676,
+  "dst_port": 0.5659,
+  "fwd_bpp": 0.5629,
+  "fwd_pkt_len_max": 0.552,
+  "pkt_ratio": 0.5429,
+  "fwd_bytes": 0.5287,
+  "syn_count": 0.5143
+}

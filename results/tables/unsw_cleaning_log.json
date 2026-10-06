@@ -1,0 +1,141 @@
+{
+  "raw_rows": {
+    "train": 175341,
+    "test": 82332
+  },
+  "nonfinite_dropped_train": 0,
+  "nonfinite_dropped_test": 0,
+  "dup_within_train": 76047,
+  "dup_within_test": 29421,
+  "test_rows_also_in_train": 1361,
+  "train_feature_vectors_with_conflicting_labels": 272,
+  "clean_rows": {
+    "train": 99294,
+    "test": 51550
+  },
+  "attack_share": {
+    "train": 0.4846,
+    "test": 0.3514
+  },
+  "class_counts_train": {
+    "Normal": 51173,
+    "Exploits": 18641,
+    "Fuzzers": 14856,
+    "Reconnaissance": 6239,
+    "Generic": 3381,
+    "DoS": 2836,
+    "Shellcode": 1083,
+    "Analysis": 504,
+    "Backdoor": 461,
+    "Worms": 120
+  },
+  "class_counts_test": {
+    "Normal": 33436,
+    "Exploits": 7074,
+    "Fuzzers": 4262,
+    "Generic": 2772,
+    "Reconnaissance": 2176,
+    "DoS": 1176,
+    "Shellcode": 361,
+    "Analysis": 183,
+    "Backdoor": 67,
+    "Worms": 43
+  },
+  "corr_pairs_over_0.95": [
+    [
+      "dpkts",
+      "dbytes",
+      0.9608
+    ],
+    [
+      "swin",
+      "dwin",
+      0.9838
+    ],
+    [
+      "swin",
+      "proto_tcp",
+      0.9998
+    ],
+    [
+      "swin",
+      "proto_udp",
+      0.9655
+    ],
+    [
+      "dwin",
+      "proto_tcp",
+      0.9838
+    ],
+    [
+      "dwin",
+      "proto_udp",
+      0.95
+    ],
+    [
+      "proto_tcp",
+      "proto_udp",
+      0.9657
+    ],
+    [
+      "sload",
+      "sinpkt",
+      0.9533
+    ],
+    [
+      "rate",
+      "sinpkt",
+      0.9862
+    ]
+  ],
+  "dropped_for_correlation": [
+    "dbytes",
+    "dwin",
+    "proto_tcp",
+    "proto_udp",
+    "sinpkt"
+  ],
+  "model_features": [
+    "dur",
+    "spkts",
+    "dpkts",
+    "sbytes",
+    "sttl",
+    "dttl",
+    "swin",
+    "trans_depth",
+    "ct_srv_src",
+    "ct_dst_ltm",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "smean",
+    "dmean",
+    "sload",
+    "dload",
+    "rate"
+  ],
+  "model_feature_roles": {
+    "dur": "controllable",
+    "spkts": "controllable",
+    "dpkts": "fixed",
+    "sbytes": "controllable",
+    "sttl": "controllable",
+    "dttl": "fixed",
+    "swin": "controllable",
+    "trans_depth": "fixed",
+    "ct_srv_src": "fixed",
+    "ct_dst_ltm": "fixed",
+    "ct_src_ltm": "fixed",
+    "ct_srv_dst": "fixed",
+    "smean": "derived",
+    "dmean": "derived",
+    "sload": "derived",
+    "dload": "derived",
+    "rate": "derived"
+  },
+  "role_counts": {
+    "fixed": 7,
+    "controllable": 5,
+    "derived": 5
+  }
+}

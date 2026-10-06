@@ -1,0 +1,19 @@
+{
+  "sttl": 0.8694,
+  "dload": 0.8227,
+  "ct_srv_dst": 0.7318,
+  "ct_dst_ltm": 0.731,
+  "dttl": 0.7295,
+  "dmean": 0.709,
+  "ct_src_ltm": 0.6934,
+  "ct_srv_src": 0.6928,
+  "rate": 0.6758,
+  "sload": 0.6627,
+  "dur": 0.6534,
+  "dpkts": 0.6185,
+  "spkts": 0.5841,
+  "trans_depth": 0.5764,
+  "sbytes": 0.5693,
+  "swin": 0.5217,
+  "smean": 0.5133
+}

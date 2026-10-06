@@ -1,0 +1,109 @@
+{
+  "rows_per_day": {
+    "Friday-WorkingHours-Afternoon-DDos": 225745,
+    "Friday-WorkingHours-Afternoon-PortScan": 286467,
+    "Friday-WorkingHours-Morning": 191033,
+    "Monday-WorkingHours": 529918,
+    "Thursday-WorkingHours-Afternoon-Infilteration": 288602,
+    "Thursday-WorkingHours-Morning-WebAttacks": 170366,
+    "Tuesday-WorkingHours": 445909,
+    "Wednesday-workingHours": 692703
+  },
+  "raw_rows_finite": 2830743,
+  "raw_class_counts": {
+    "BENIGN": 2273097,
+    "DoS Hulk": 231073,
+    "PortScan": 158930,
+    "DDoS": 128027,
+    "DoS GoldenEye": 10293,
+    "FTP Patator": 7938,
+    "SSH Patator": 5897,
+    "DoS slowloris": 5796,
+    "DoS Slowhttptest": 5499,
+    "Bot": 1966,
+    "Web Attack Brute Force": 1507,
+    "Web Attack XSS": 652,
+    "Infiltration": 36,
+    "Web Attack Sql Injection": 21,
+    "Heartbleed": 11
+  },
+  "duplicates_removed": 530897,
+  "rows_with_conflicting_labels_removed": 1656,
+  "classes_dropped_lt10": [],
+  "sampled_class_counts": {
+    "BENIGN": 188135,
+    "DoS Hulk": 16732,
+    "DDoS": 12746,
+    "PortScan": 9018,
+    "DoS GoldenEye": 5000,
+    "DoS Slowhttptest": 5000,
+    "DoS slowloris": 4865,
+    "FTP Patator": 4259,
+    "SSH Patator": 3213,
+    "Bot": 1910,
+    "Web Attack Brute Force": 1464,
+    "Web Attack XSS": 649,
+    "Infiltration": 36,
+    "Web Attack Sql Injection": 21,
+    "Heartbleed": 11
+  },
+  "clean_rows": {
+    "train": 177141,
+    "test": 75918
+  },
+  "attack_share": {
+    "train": 0.2566,
+    "test": 0.2566
+  },
+  "corr_pairs_over_0.95": [
+    [
+      "duration",
+      "mean_iat",
+      0.9561
+    ],
+    [
+      "bwd_bytes",
+      "bwd_pkt_len_max",
+      0.9805
+    ]
+  ],
+  "dropped_for_correlation": [
+    "bwd_pkt_len_max",
+    "mean_iat"
+  ],
+  "model_features": [
+    "duration",
+    "fwd_pkts",
+    "bwd_pkts",
+    "fwd_bytes",
+    "bwd_bytes",
+    "fwd_pkt_len_max",
+    "syn_count",
+    "dst_port",
+    "init_win_fwd",
+    "init_win_bwd",
+    "fwd_bpp",
+    "pkt_ratio",
+    "bytes_per_s"
+  ],
+  "model_feature_roles": {
+    "duration": "controllable",
+    "fwd_pkts": "controllable",
+    "bwd_pkts": "fixed",
+    "fwd_bytes": "controllable",
+    "bwd_bytes": "fixed",
+    "fwd_pkt_len_max": "controllable",
+    "syn_count": "fixed",
+    "dst_port": "fixed",
+    "init_win_fwd": "controllable",
+    "init_win_bwd": "fixed",
+    "fwd_bpp": "derived",
+    "pkt_ratio": "derived",
+    "bytes_per_s": "derived"
+  },
+  "role_counts": {
+    "controllable": 5,
+    "fixed": 5,
+    "derived": 3
+  }
+}

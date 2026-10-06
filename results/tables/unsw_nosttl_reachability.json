@@ -1,0 +1,22 @@
+{
+  "reachable_model_features": [
+    "dur",
+    "spkts",
+    "sbytes",
+    "swin",
+    "smean",
+    "sload",
+    "dload",
+    "rate"
+  ],
+  "fixed_model_features": [
+    "dpkts",
+    "dttl",
+    "trans_depth",
+    "ct_srv_src",
+    "ct_dst_ltm",
+    "ct_src_ltm",
+    "ct_srv_dst",
+    "dmean"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "reachable_model_features": [
+    "duration",
+    "fwd_pkts",
+    "fwd_bytes",
+    "fwd_pkt_len_max",
+    "init_win_fwd",
+    "fwd_bpp",
+    "pkt_ratio",
+    "bytes_per_s"
+  ],
+  "fixed_model_features": [
+    "bwd_pkts",
+    "bwd_bytes",
+    "syn_count",
+    "dst_port",
+    "init_win_bwd"
+  ]
+}

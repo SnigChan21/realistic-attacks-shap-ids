@@ -1,0 +1,10 @@
+data/
+models/
+__pycache__/
+*.pyc
+paper/*.aux
+paper/*.log
+paper/*.bbl
+paper/*.blg
+paper/*.out
+results/tables/chunks/
