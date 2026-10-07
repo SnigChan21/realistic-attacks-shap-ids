@@ -1,0 +1,40 @@
+{
+  "ESI": [
+    {
+      "model": "rf",
+      "mode": "constrained",
+      "mean": 0.129,
+      "std": 0.008
+    },
+    {
+      "model": "rf",
+      "mode": "unconstrained",
+      "mean": 0.067,
+      "std": 0.004
+    },
+    {
+      "model": "xgb",
+      "mode": "constrained",
+      "mean": 0.242,
+      "std": 0.04
+    },
+    {
+      "model": "xgb",
+      "mode": "unconstrained",
+      "mean": 0.101,
+      "std": 0.005
+    }
+  ],
+  "RQ2_spillover_constrained": [
+    {
+      "model": "rf",
+      "share_flows_with_fixed_drift": 1.0,
+      "median_reach_share": 0.806
+    },
+    {
+      "model": "xgb",
+      "share_flows_with_fixed_drift": 1.0,
+      "median_reach_share": 0.845
+    }
+  ]
+}

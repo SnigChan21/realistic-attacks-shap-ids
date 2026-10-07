@@ -155,23 +155,25 @@ def main() -> None:
     for seed in SEEDS:
         for mname in MODELS:
             ck = ROOT / "results/tables/chunks"; ck.mkdir(parents=True, exist_ok=True)
-            cf, cff = ck / f"{DS}{TAG}_s{seed}_{mname}.csv.gz", ck / f"{DS}{TAG}_s{seed}_{mname}_feat.csv"
-            if cf.exists() and cff.exists():
-                rows.append(pd.read_csv(cf)); feat_rows.extend(pd.read_csv(cff).to_dict("records"))
-                print(f"seed={seed} {mname}: loaded checkpoint", flush=True)
-                continue
-            n_rows0, n_feat0 = len(rows), len(feat_rows)
-            model = joblib.load(ROOT / f"models/{DS}_{mname}_seed{seed}.joblib")
-            predict = lambda X, m=model: m.predict_proba(X[:, midx])[:, 1]  # noqa: E731
-            det = predict(Xatt) >= 0.5
-            rng = np.random.default_rng(seed)
-            pick = rng.choice(np.flatnonzero(det), size=N_FLOWS, replace=False)
-            X0, cats = Xatt[pick], cats_all[pick]
-            expl = shap.TreeExplainer(model, feature_perturbation="tree_path_dependent")
-            P0 = shap_values(expl, X0[:, midx], mname)
+            model = expl = P0 = None
             for mode, allowed in (("unconstrained", allowed_unc), ("constrained", allowed_con)):
                 con = mode == "constrained"
                 for eps in EPS:
+                    cf = ck / f"{DS}{TAG}_s{seed}_{mname}_{mode}_{eps}.csv.gz"
+                    cff = ck / f"{DS}{TAG}_s{seed}_{mname}_{mode}_{eps}_feat.csv"
+                    if cf.exists() and cff.exists():
+                        rows.append(pd.read_csv(cf)); feat_rows.extend(pd.read_csv(cff).to_dict("records"))
+                        continue
+                    if model is None:
+                        model = joblib.load(ROOT / f"models/{DS}_{mname}_seed{seed}.joblib")
+                        predict = lambda X, m=model: m.predict_proba(X[:, midx])[:, 1]  # noqa: E731
+                        det = predict(Xatt) >= 0.5
+                        rng = np.random.default_rng(seed)
+                        pick = rng.choice(np.flatnonzero(det), size=N_FLOWS, replace=False)
+                        X0, cats = Xatt[pick], cats_all[pick]
+                        expl = shap.TreeExplainer(model, feature_perturbation="tree_path_dependent")
+                        P0 = shap_values(expl, X0[:, midx], mname)
+                    n_rows0, n_feat0 = len(rows), len(feat_rows)
                     for kind in KINDS:
                         if kind == "attack":
                             Xa = random_search(predict, pre, X0, SCHEMA, allowed, eps, con, seed)
@@ -197,8 +199,8 @@ def main() -> None:
                               f"evade={df.evaded.mean():.3f} valid={valid.mean():.3f} "
                               f"drift={df.drift_mean.mean():.4f} top5={df.topk_overlap.mean():.3f} "
                               f"reach={df.reach_share.mean():.3f}", flush=True)
-            pd.concat(rows[n_rows0:], ignore_index=True).to_csv(cf, index=False)
-            pd.DataFrame(feat_rows[n_feat0:]).to_csv(cff, index=False)
+                    pd.concat(rows[n_rows0:], ignore_index=True).to_csv(cf, index=False)
+                    pd.DataFrame(feat_rows[n_feat0:]).to_csv(cff, index=False)
     res = pd.concat(rows, ignore_index=True)
     res.to_csv(ROOT / f"results/tables/{DS}{TAG}_per_flow_results.csv.gz", index=False)
     pd.DataFrame(feat_rows).to_csv(ROOT / f"results/tables/{DS}{TAG}_per_feature_drift.csv", index=False)
