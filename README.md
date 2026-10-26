@@ -2,7 +2,7 @@
 
 **SHAP Stability of Intrusion Detectors Under Constrained vs. Unconstrained Adversarial Perturbations**
 
-Jagadeesh Gopal (School of Computer Science Engineering and Information Systems, Vellore Institute of Technology, Vellore, India · gjagadeesh@vit.ac.in) and Snigda Chandanala (Department of Information Technology, Vellore Institute of Technology, Vellore, India · snigdachandanala@gmail.com)
+Jagadeesh Gopal (School of Computer Science Engineering and Information Systems, Vellore Institute of Technology, Vellore, India · gjagadeesh@vit.ac.in) and Snigda Chandanala (Department of Information Technology, Vellore Institute of Technology, Vellore, India · snigda.chandanala2024@vitstudent.ac.in)
 
 Repository: https://github.com/SnigChan21/realistic-attacks-shap-ids
 
